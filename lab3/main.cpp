@@ -22,11 +22,37 @@ double fun_chooser(double x, unsigned i){
 }
 
 int main() {
-    result results = bisection(1.5*M_PI, 2*M_PI, pow(10.0,-13), 1);
+    result results = bisection(1.5*M_PI, 2*M_PI, pow(10.0,-7), 1);
     std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = bisection(0, 0.5*M_PI, pow(10.0,-7), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = bisection(1, 3, pow(10.0,-7), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
+    results = bisection(1.5*M_PI, 2*M_PI, pow(10.0,-15), 1);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = bisection(0, 0.5*M_PI, pow(10.0,-15), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = bisection(1, 3, pow(10.0,-15), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
     results = bisection(0, 0.5*M_PI, pow(10.0,-33), 2);
     std::cout <<results.value<<" " <<results.iterations<<std::endl;
     results = bisection(1, 3, pow(10.0,-33), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
+    results = newton(1.5*M_PI, 2*M_PI, 100, pow(10.0,-7), 1);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = newton(0, 0.5*M_PI, 100, pow(10.0,-7), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = newton(1, 3, 100, pow(10.0,-7), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
+    results = newton(1.5*M_PI, 2*M_PI, 100, pow(10.0,-15), 1);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = newton(0, 0.5*M_PI, 100, pow(10.0,-15), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = newton(1, 3, 100, pow(10.0,-15), 3);
     std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
 
     results = newton(1.5*M_PI, 2*M_PI, 100, pow(10.0,-33), 1);
@@ -34,6 +60,20 @@ int main() {
     results = newton(0, 0.5*M_PI, 100, pow(10.0,-33), 2);
     std::cout <<results.value<<" " <<results.iterations<<std::endl;
     results = newton(1, 3, 100, pow(10.0,-33), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
+    results = secant(1.5*M_PI, 2*M_PI, 100, pow(10.0,-7), 1);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = secant(0., 0.5*M_PI, 100, pow(10.0,-7), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = secant(1, 3, 100, pow(10.0,-7), 3);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
+
+    results = secant(1.5*M_PI, 2*M_PI, 100, pow(10.0,-15), 1);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = secant(0., 0.5*M_PI, 100, pow(10.0,-15), 2);
+    std::cout <<results.value<<" " <<results.iterations<<std::endl;
+    results = secant(1, 3, 100, pow(10.0,-15), 3);
     std::cout <<results.value<<" " <<results.iterations<<std::endl<<std::endl;
 
     results = secant(1.5*M_PI, 2*M_PI, 100, pow(10.0,-33), 1);
