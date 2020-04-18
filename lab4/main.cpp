@@ -3,10 +3,11 @@
 #include <vector>
 #include <fstream>
 
-const int STEPS = 1000;
-const double START = -3.0;
-const double END = 3.0;
-const double LENGTH = 6.0;
+const int STEPS = 2000;
+const double START = -5.0;
+const double END = 5.0;
+const double LENGTH = 10.0;
+const int pointsNumber[10] = {2, 3, 5, 7, 10, 12, 15, 20, 30, 35};
 
 struct point {
     double x;
@@ -195,7 +196,7 @@ double hermiteInPoint(std::vector<point> values, int n, double x) {
 std::vector<point> hermite(int pointsNumber) {
     std::vector<point> results;
     std::vector<point> values = getPoints(function, pointsNumber);
-    double interval = 6.0 / (STEPS - 1);
+    double interval = LENGTH / (STEPS - 1);
     for (int i = 0; i < STEPS; i++) {
         point point;
         point.x = interval * i - END;
@@ -271,7 +272,6 @@ int main(int argc, char **argv) {
     std::string path = "results/results";
     std::string errPath = "errors/";
     std::ofstream file;
-    int pointsNumber[10] = {2, 3, 5, 7, 10, 12, 15, 20, 30, 40};
 
     std::cout << ".";
 
@@ -348,42 +348,42 @@ int main(int argc, char **argv) {
     std::cout <<std::endl<< "calculating errors";
 
     file.open(errPath + "L" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Lagrange" << i << " : " << lagrangeError(i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "LC" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Lagrange Ch, " << i << " : " << lagrangeError(i, true) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "N" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Newton, " << i << " : " << newtonError(i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "NC" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Newton Ch, " << i << " : " << newtonError(i, true) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "H" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Hermite, " << i << " : " << hermiteError(i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "HC" + fileExtension);
-    for (int i = 2; i < 100; i++) {
+    for (int i = 2; i < 50; i++) {
         file << "Hermite Ch, " << i << " : " << hermiteError(i, true) << std::endl;
     }
     file.close();

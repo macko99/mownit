@@ -5,7 +5,7 @@ import csv
 filename = "results/results"
 extension = ".txt"
 path = "plots/"
-points = [2,3,5,7,10,12,15,20,30,40]
+points = [2,3,5,7,10,12,15,20,30,35]
 x = []
 y = []
 
