@@ -7,7 +7,7 @@ const int STEPS = 2000;
 const double START = -5.0;
 const double END = 5.0;
 const double LENGTH = 10.0;
-const int pointsNumber[10] = {2, 3, 5, 7, 10, 12, 15, 20, 30, 35};
+const int points[10] = {2, 3, 5, 7, 10, 12, 15, 20, 30, 35};
 
 struct point {
     double x;
@@ -60,22 +60,13 @@ double lagrangeInPoint(std::vector<point> values, double xi) {
     return result;
 }
 
-std::vector<point> lagrange(int pointsNumber) {
+std::vector<point> lagrange(int pointsNumber, bool chebyshev) {
     std::vector<point> results;
-    std::vector<point> values = getPoints(function, pointsNumber);
-    double interval = LENGTH / (STEPS - 1);
-    for (int i = 0; i < STEPS; i++) {
-        point point{};
-        point.x = interval * i - END;
-        point.y = lagrangeInPoint(values, point.x);
-        results.push_back(point);
-    }
-    return results;
-}
-
-std::vector<point> lagrangeChebyshev(int pointsNumber) {
-    std::vector<point> results;
-    std::vector<point> values = getChebyshevPoints(function, pointsNumber);
+    std::vector<point> values;
+    if (!chebyshev)
+        values = getPoints(function, pointsNumber);
+    else
+        values = getChebyshevPoints(function, pointsNumber);
     double interval = LENGTH / (STEPS - 1);
     for (int i = 0; i < STEPS; i++) {
         point point{};
@@ -112,7 +103,6 @@ std::vector<std::vector<double>> newtonDivDiffTable(std::vector<point> values, i
     return result;
 }
 
-
 double newtonInPoint(const std::vector<point>& values, int n, double x) {
     std::vector<std::vector<double>> y = newtonDivDiffTable(values, n);
     double sum = y[0][0];
@@ -122,22 +112,13 @@ double newtonInPoint(const std::vector<point>& values, int n, double x) {
     return sum;
 }
 
-std::vector<point> newton(int pointsNumber) {
+std::vector<point> newton(int pointsNumber, bool chebyshev) {
     std::vector<point> results;
-    std::vector<point> values = getPoints(function, pointsNumber);
-    double interval = LENGTH / (STEPS - 1);
-    for (int i = 0; i < STEPS; i++) {
-        point point{};
-        point.x = interval * i - END;
-        point.y = newtonInPoint(values, pointsNumber, point.x);
-        results.push_back(point);
-    }
-    return results;
-}
-
-std::vector<point> newtonChebyshev(int pointsNumber) {
-    std::vector<point> results;
-    std::vector<point> values = getChebyshevPoints(function, pointsNumber);
+    std::vector<point> values;
+    if(!chebyshev)
+        values = getPoints(function, pointsNumber);
+    else
+        values = getChebyshevPoints(function, pointsNumber);
     double interval = LENGTH / (STEPS - 1);
     for (int i = 0; i < STEPS; i++) {
         point point{};
@@ -193,12 +174,16 @@ double hermiteInPoint(std::vector<point> values, int n, double x) {
     return result;
 }
 
-std::vector<point> hermite(int pointsNumber) {
+std::vector<point> hermite(int pointsNumber, bool chebyshev) {
     std::vector<point> results;
-    std::vector<point> values = getPoints(function, pointsNumber);
+    std::vector<point> values;
+    if(!chebyshev)
+        values = getPoints(function, pointsNumber);
+    else
+        values = getChebyshevPoints(function, pointsNumber);
     double interval = LENGTH / (STEPS - 1);
     for (int i = 0; i < STEPS; i++) {
-        point point;
+        point point{};
         point.x = interval * i - END;
         point.y = hermiteInPoint(values, pointsNumber, point.x);
         results.push_back(point);
@@ -206,64 +191,16 @@ std::vector<point> hermite(int pointsNumber) {
     return results;
 }
 
-std::vector<point> hermiteChebyshev(int pointsNumber) {
-    std::vector<point> results;
-    std::vector<point> values = getChebyshevPoints(function, pointsNumber);
-    double interval = LENGTH / (STEPS - 1);
-    for (int i = 0; i < STEPS; i++) {
-        point point;
-        point.x = interval * i - END;
-        point.y = hermiteInPoint(values, pointsNumber, point.x);
-        results.push_back(point);
-    }
-    return results;
-}
-
-double lagrangeError(int n, bool chebyshev) {
+double totalError(std::vector<point> interpolation(int n, bool ch), int n, bool chebyshev) {
     double error = 0.0;
     double interval = LENGTH / (STEPS - 1);
     std::vector<point> results;
-    if (!chebyshev) {
-        results = lagrange(n);
-    } else {
-        results = lagrangeChebyshev(n);
-    }
+    results = interpolation(n, chebyshev);
     for (int i = 0; i < STEPS; i++) {
         error += std::abs(function(i * interval - END) - results[i].y);
     }
     return error;
 }
-
-double newtonError(int n, bool chebyshev) {
-    double error = 0.0;
-    double interval = LENGTH / (STEPS - 1);
-    std::vector<point> results;
-    if (!chebyshev) {
-        results = newton(n);
-    } else {
-        results = newtonChebyshev(n);
-    }
-    for (int i = 0; i < STEPS; i++) {
-        error += std::abs(function(i * interval - END) - results[i].y);
-    }
-    return error;
-}
-
-double hermiteError(int n, bool chebyshev) {
-    double error = 0.0;
-    double interval = LENGTH / (STEPS - 1);
-    std::vector<point> results;
-    if (!chebyshev) {
-        results = hermite(n);
-    } else {
-        results = hermiteChebyshev(n);
-    }
-    for (int i = 0; i < STEPS; i++) {
-        error += std::abs(function(i * interval - END) - results[i].y);
-    }
-    return error;
-}
-
 
 int main(int argc, char **argv) {
     std::cout << "preparing.";
@@ -284,9 +221,9 @@ int main(int argc, char **argv) {
 
     std::cout << std::endl << "calculating";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "L" + std::to_string(number) + fileExtension);
-        results = lagrange(number);
+        results = lagrange(number, false);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -294,9 +231,9 @@ int main(int argc, char **argv) {
     }
     std::cout << ".";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "LC" + std::to_string(number) + fileExtension);
-        results = lagrangeChebyshev(number);
+        results = lagrange(number, true);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -304,9 +241,9 @@ int main(int argc, char **argv) {
     }
     std::cout << ".";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "N" + std::to_string(number) + fileExtension);
-        results = newton(number);
+        results = newton(number, false);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -314,9 +251,9 @@ int main(int argc, char **argv) {
     }
     std::cout << ".";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "NC" + std::to_string(number) + fileExtension);
-        results = newtonChebyshev(number);
+        results = newton(number, true);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -324,9 +261,9 @@ int main(int argc, char **argv) {
     }
     std::cout << ".";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "H" + std::to_string(number) + fileExtension);
-        results = hermite(number);
+        results = hermite(number, false);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -334,9 +271,9 @@ int main(int argc, char **argv) {
     }
     std::cout << ".";
 
-    for (int number : pointsNumber) {
+    for (int number : points) {
         file.open(path + "HC" + std::to_string(number) + fileExtension);
-        results = hermiteChebyshev(number);
+        results = hermite(number, true);
         for (point result : results) {
             file << result.x << " " << result.y << std::endl;
         }
@@ -348,43 +285,43 @@ int main(int argc, char **argv) {
     std::cout <<std::endl<< "calculating errors";
 
     file.open(errPath + "L" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Lagrange" << i << " : " << lagrangeError(i, false) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Lagrange" << i << " : " << totalError(lagrange, i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "LC" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Lagrange Ch, " << i << " : " << lagrangeError(i, true) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Lagrange Ch, " << i << " : " << totalError(lagrange, i, true) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "N" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Newton, " << i << " : " << newtonError(i, false) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Newton, " << i << " : " << totalError(newton, i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "NC" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Newton Ch, " << i << " : " << newtonError(i, true) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Newton Ch, " << i << " : " << totalError(newton, i, true) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "H" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Hermite, " << i << " : " << hermiteError(i, false) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Hermite, " << i << " : " << totalError(hermite, i, false) << std::endl;
     }
     file.close();
     std::cout << ".";
 
     file.open(errPath + "HC" + fileExtension);
-    for (int i = 2; i < 50; i++) {
-        file << "Hermite Ch, " << i << " : " << hermiteError(i, true) << std::endl;
+    for (int i = 2; i < 100; i++) {
+        file << "Hermite Ch, " << i << " : " << totalError(hermite, i, true) << std::endl;
     }
     file.close();
 
