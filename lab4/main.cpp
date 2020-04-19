@@ -286,7 +286,7 @@ int main(int argc, char **argv) {
 
     file.open(errPath + "L" + fileExtension);
     for (int i = 2; i < 100; i++) {
-        file << "Lagrange" << i << " : " << totalError(lagrange, i, false) << std::endl;
+        file << "Lagrange, " << i << " : " << totalError(lagrange, i, false) << std::endl;
     }
     file.close();
     std::cout << ".";

@@ -1,98 +1,98 @@
-Lagrange2 : 1435.83
-Lagrange3 : 2435.11
-Lagrange4 : 1344.63
-Lagrange5 : 1069.59
-Lagrange6 : 572.506
-Lagrange7 : 843.831
-Lagrange8 : 421.984
-Lagrange9 : 690.183
-Lagrange10 : 320.002
-Lagrange11 : 597.965
-Lagrange12 : 265.5
-Lagrange13 : 549.908
-Lagrange14 : 245.061
-Lagrange15 : 512.807
-Lagrange16 : 232.098
-Lagrange17 : 480.924
-Lagrange18 : 222.063
-Lagrange19 : 449.551
-Lagrange20 : 211.836
-Lagrange21 : 416.357
-Lagrange22 : 199.839
-Lagrange23 : 381.202
-Lagrange24 : 185.998
-Lagrange25 : 344.531
-Lagrange26 : 170.583
-Lagrange27 : 307.163
-Lagrange28 : 154.082
-Lagrange29 : 270.1
-Lagrange30 : 137.083
-Lagrange31 : 234.254
-Lagrange32 : 120.155
-Lagrange33 : 200.422
-Lagrange34 : 103.79
-Lagrange35 : 169.205
-Lagrange36 : 88.3905
-Lagrange37 : 141.01
-Lagrange38 : 74.2503
-Lagrange39 : 116.035
-Lagrange40 : 61.553
-Lagrange41 : 94.3123
-Lagrange42 : 50.3739
-Lagrange43 : 75.7566
-Lagrange44 : 40.7172
-Lagrange45 : 60.1485
-Lagrange46 : 32.5192
-Lagrange47 : 47.2232
-Lagrange48 : 25.6709
-Lagrange49 : 36.6724
-Lagrange50 : 20.0402
-Lagrange51 : 28.1699
-Lagrange52 : 15.4801
-Lagrange53 : 21.4677
-Lagrange54 : 11.8161
-Lagrange55 : 16.1828
-Lagrange56 : 9.04472
-Lagrange57 : 12.8527
-Lagrange58 : 6.40933
-Lagrange59 : 11.0976
-Lagrange60 : 14.1743
-Lagrange61 : 26.8289
-Lagrange62 : 51.9482
-Lagrange63 : 94.7771
-Lagrange64 : 162.855
-Lagrange65 : 386.541
-Lagrange66 : 646.556
-Lagrange67 : 1267.13
-Lagrange68 : 2554.22
-Lagrange69 : 5708.59
-Lagrange70 : 11283.8
-Lagrange71 : 19734.2
-Lagrange72 : 29763.7
-Lagrange73 : 70949.1
-Lagrange74 : 136783
-Lagrange75 : 276088
-Lagrange76 : 492534
-Lagrange77 : 1.02828e+06
-Lagrange78 : 1.89197e+06
-Lagrange79 : 3.43294e+06
-Lagrange80 : 8.3547e+06
-Lagrange81 : 1.89389e+07
-Lagrange82 : 3.16664e+07
-Lagrange83 : 5.76554e+07
-Lagrange84 : 1.16804e+08
-Lagrange85 : 2.20182e+08
-Lagrange86 : 3.89797e+08
-Lagrange87 : 9.98554e+08
-Lagrange88 : 1.36341e+09
-Lagrange89 : 3.39031e+09
-Lagrange90 : 6.07482e+09
-Lagrange91 : 9.58752e+09
-Lagrange92 : 2.12158e+10
-Lagrange93 : 5.32882e+10
-Lagrange94 : 1.0318e+11
-Lagrange95 : 1.95935e+11
-Lagrange96 : 4.17802e+11
-Lagrange97 : 6.4955e+11
-Lagrange98 : 1.07188e+12
-Lagrange99 : 3.14893e+12
+Lagrange, 2 : 1435.83
+Lagrange, 3 : 2435.11
+Lagrange, 4 : 1344.63
+Lagrange, 5 : 1069.59
+Lagrange, 6 : 572.506
+Lagrange, 7 : 843.831
+Lagrange, 8 : 421.984
+Lagrange, 9 : 690.183
+Lagrange, 10 : 320.002
+Lagrange, 11 : 597.965
+Lagrange, 12 : 265.5
+Lagrange, 13 : 549.908
+Lagrange, 14 : 245.061
+Lagrange, 15 : 512.807
+Lagrange, 16 : 232.098
+Lagrange, 17 : 480.924
+Lagrange, 18 : 222.063
+Lagrange, 19 : 449.551
+Lagrange, 20 : 211.836
+Lagrange, 21 : 416.357
+Lagrange, 22 : 199.839
+Lagrange, 23 : 381.202
+Lagrange, 24 : 185.998
+Lagrange, 25 : 344.531
+Lagrange, 26 : 170.583
+Lagrange, 27 : 307.163
+Lagrange, 28 : 154.082
+Lagrange, 29 : 270.1
+Lagrange, 30 : 137.083
+Lagrange, 31 : 234.254
+Lagrange, 32 : 120.155
+Lagrange, 33 : 200.422
+Lagrange, 34 : 103.79
+Lagrange, 35 : 169.205
+Lagrange, 36 : 88.3905
+Lagrange, 37 : 141.01
+Lagrange, 38 : 74.2503
+Lagrange, 39 : 116.035
+Lagrange, 40 : 61.553
+Lagrange, 41 : 94.3123
+Lagrange, 42 : 50.3739
+Lagrange, 43 : 75.7566
+Lagrange, 44 : 40.7172
+Lagrange, 45 : 60.1485
+Lagrange, 46 : 32.5192
+Lagrange, 47 : 47.2232
+Lagrange, 48 : 25.6709
+Lagrange, 49 : 36.6724
+Lagrange, 50 : 20.0402
+Lagrange, 51 : 28.1699
+Lagrange, 52 : 15.4801
+Lagrange, 53 : 21.4677
+Lagrange, 54 : 11.8161
+Lagrange, 55 : 16.1828
+Lagrange, 56 : 9.04472
+Lagrange, 57 : 12.8527
+Lagrange, 58 : 6.40933
+Lagrange, 59 : 11.0976
+Lagrange, 60 : 14.1743
+Lagrange, 61 : 26.8289
+Lagrange, 62 : 51.9482
+Lagrange, 63 : 94.7771
+Lagrange, 64 : 162.855
+Lagrange, 65 : 386.541
+Lagrange, 66 : 646.556
+Lagrange, 67 : 1267.13
+Lagrange, 68 : 2554.22
+Lagrange, 69 : 5708.59
+Lagrange, 70 : 11283.8
+Lagrange, 71 : 19734.2
+Lagrange, 72 : 29763.7
+Lagrange, 73 : 70949.1
+Lagrange, 74 : 136783
+Lagrange, 75 : 276088
+Lagrange, 76 : 492534
+Lagrange, 77 : 1.02828e+06
+Lagrange, 78 : 1.89197e+06
+Lagrange, 79 : 3.43294e+06
+Lagrange, 80 : 8.3547e+06
+Lagrange, 81 : 1.89389e+07
+Lagrange, 82 : 3.16664e+07
+Lagrange, 83 : 5.76554e+07
+Lagrange, 84 : 1.16804e+08
+Lagrange, 85 : 2.20182e+08
+Lagrange, 86 : 3.89797e+08
+Lagrange, 87 : 9.98554e+08
+Lagrange, 88 : 1.36341e+09
+Lagrange, 89 : 3.39031e+09
+Lagrange, 90 : 6.07482e+09
+Lagrange, 91 : 9.58752e+09
+Lagrange, 92 : 2.12158e+10
+Lagrange, 93 : 5.32882e+10
+Lagrange, 94 : 1.0318e+11
+Lagrange, 95 : 1.95935e+11
+Lagrange, 96 : 4.17802e+11
+Lagrange, 97 : 6.4955e+11
+Lagrange, 98 : 1.07188e+12
+Lagrange, 99 : 3.14893e+12
